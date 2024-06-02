@@ -1,7 +1,8 @@
-<?php 
+<?php
 class ErrorController extends Controller
 {
-    public function notFound() {
+    public function notFound()
+    {
         $this->view('error/notFound');
     }
 }
