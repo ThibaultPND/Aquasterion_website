@@ -1,7 +1,7 @@
 <?php
 class App
 {
-    protected $controller = 'HomeController';
+    protected $controller = 'home';
     protected $method = 'index';
     protected $params = [];
 
@@ -9,24 +9,30 @@ class App
     {
         $url = $this->parseUrl();
 
-        if ($url === null) $url = [$this->controller];
+        if ($url === null)
+            $url = [$this->controller];
 
-        if (isset($url[0]) && file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
-            $this->controller = ucfirst($url[0]) . 'Controller';
-            unset($url[0]);
-        }else {
+        if (isset($url[0])) {
+            if (file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
+                $this->controller = ucfirst($url[0]) . 'Controller';
+                unset($url[0]);
+            }else {
+                $this->controller = 'ErrorController';
+            }
+        } else {
             $this->controller = 'ErrorController';
         }
 
         require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
-        var_dump($this);
+
         if (isset($url[1]) && method_exists($this->controller, $url[1])) {
             $this->method = $url[1];
-        }else if (!method_exists($this->controller, $this->method)){
+        } else if (!method_exists($this->controller, $this->method)) {
             $this->controller = new ErrorController();
             $this->method = 'notFound';
         }
+
         unset($url[1]);
         $this->params = $url ? array_values($url) : [];
         call_user_func_array([$this->controller, $this->method], $this->params);

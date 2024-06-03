@@ -62,7 +62,7 @@ class AuthController extends Controller
 
             if ($user && password_verify($password, $user['password'])) {
                 loginUser($user);
-                redirect('dashboard');
+                redirect('home/index');
             } else {
                 $data['message'] = 'Nom d\'utilisateur ou mot de passe incorrect.';
             }
