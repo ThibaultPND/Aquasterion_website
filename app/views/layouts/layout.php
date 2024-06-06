@@ -15,6 +15,7 @@
             <nav>
                 <ul>
                     <li><a href="<?= BASE_URL ?>">Home</a></li>
+                    <li><a href="<?= BASE_URL ?>pool/status">Statut</a></li>
                     <?php if (isLoggedIn()): ?>
                         <li class="dropdown">
                             <a href="javascript:void(0)" class="dropbtn" onclick="toggleDropdown()">Pompes</a>
@@ -22,6 +23,21 @@
                                 <a href="<?= BASE_URL ?>pump/add_del">Ajouter/Supprimer</a>
                                 <a href="<?= BASE_URL ?>pump/mode">Mode</a>
                                 <a href="<?= BASE_URL ?>pump/limites">Seuils</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn" onclick="toggleDropdown()">Historiques</a>
+                            <div class="dropdown-content">
+                                <a href="<?= BASE_URL ?>history/measures">Mesures</a>
+                                <a href="<?= BASE_URL ?>history/modification">Modification</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn" onclick="toggleDropdown()">Alertes</a>
+                            <div class="dropdown-content">
+                                <a href="<?= BASE_URL ?>alerts/mode">Mode</a>
+                                <a href="<?= BASE_URL ?>alerts/modify">Modifier</a>
+                                <a href="<?= BASE_URL ?>alerts/add_del">Ajouter/Supprimer</a>
                             </div>
                         </li>
                         <li class="dropdown">
@@ -69,7 +85,8 @@
             <div class="footer-section contact">
                 <h3>Contact</h3>
                 <p>Email: contact@aquasterion.local</p>
-                <p>Téléphone: +33 6 04 56 76 82</p>
+                <p>Téléphone: +33 6 60 18 28 59</p>
+
             </div>
         </div>
         <div class="footer-bottom">

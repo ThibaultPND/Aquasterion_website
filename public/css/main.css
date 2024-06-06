@@ -45,7 +45,7 @@ nav ul li .dropdown-content {
     display:none;
     position: absolute;
     background-color: #333;
-    min-width: 160px;
+    min-width: 180px;
     z-index: 1;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
@@ -53,7 +53,6 @@ nav ul li .dropdown-content {
 nav ul li .dropdown-content a {
     color: #fff;
     padding: 12px 15px;
-    width: max-content;
     text-decoration: none;
     display: block;
     text-align: left;

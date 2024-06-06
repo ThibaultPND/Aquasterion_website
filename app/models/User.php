@@ -75,4 +75,3 @@ class User
         return $this->db->query($query);
     }
 }
-?>
