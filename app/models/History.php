@@ -21,7 +21,7 @@
 
     public function getUserAction()
     {
-        $sql = 'SELECT ';
+        $sql = 'SELECT * FROM action_utilisateur';
         return $this->db->query($sql);
     }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site MVC</title>
+    <title>Aquasterion</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -35,9 +35,8 @@
                         <li class="dropdown">
                             <a href="javascript:void(0)" class="dropbtn" onclick="toggleDropdown()">Alertes</a>
                             <div class="dropdown-content">
-                                <a href="<?= BASE_URL ?>alerts/mode">Mode</a>
-                                <a href="<?= BASE_URL ?>alerts/modify">Modifier</a>
-                                <a href="<?= BASE_URL ?>alerts/add_del">Ajouter/Supprimer</a>
+                                <a href="<?= BASE_URL ?>alerts/limites">Seuils</a>
+                                <a href="<?= BASE_URL ?>alerts/messages">Messages</a>
                             </div>
                         </li>
                         <li class="dropdown">

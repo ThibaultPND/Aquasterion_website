@@ -7,6 +7,9 @@ class PumpController extends Controller
     }
     public function limites()
     {
+        if (!isLoggedIn()) {
+            redirect('auth/login?message=Bien essayé');
+        }
         $model = $this->model('Pump');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -20,7 +23,7 @@ class PumpController extends Controller
             if (isset($_POST['add_limit'])) {
                 $model->addNewLimit();
             }
-            
+
             $model->updateSystem();
         }
         $data['pumpLimits'] = $model->getPumpLimits();
@@ -28,6 +31,9 @@ class PumpController extends Controller
     }
     public function mode()
     {
+        if (!isLoggedIn()) {
+            redirect('auth/login?message=Bien essayé');
+        }
         $model = $this->model('Pump');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $model->setState($_POST['state']);

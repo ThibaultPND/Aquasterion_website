@@ -1,33 +1,33 @@
 <?php
+require_once '../app/models/Alerts.php';
 class AlertsController extends Controller
 {
-    public function mode()
+    private $model;
+    public function __construct()
     {
-        $this->view('alerts/mode');
+        $this->model = new Alerts();
     }
-    public function modify()
+    public function limites()
     {
-        $model = $this->model('Alert');
+        if (!isLoggedIn()) {
+            redirect('auth/login?message=Bien essayé');
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             foreach ($_POST['limits'] as $limiteId => $limitData) {
-                if (isset($limitData['action']) && $limitData['action'] === 'delete') {
-                    $model->deleteAlert($limiteId);
-                } else {
-                    $model->updateAlert($limiteId, $limitData['limite_name'], $limitData['data_name'], $limitData['data_type']);
-                }
+                $this->model->updateAlert($limiteId, $limitData['limite_name'], $limitData['data_name'], $limitData['data_type']);
             }
-            if (isset($_POST['add_limit'])) {
-                $model->addNewAlert();
-            }
-             
+
         }
-        $data['alertsLimits'] = $model->getAlertsLimits();
-        $this->view('alerts/modify', $data);
+        $data['alertsLimits'] = $this->model->getAlertsLimits();
+        $this->view('alerts/limites', $data);
     }
 
-    public function add_del()
+    public function messages()
     {
-        $this->view('alerts/add_del');
+        if (!isLoggedIn()) {
+            redirect('auth/login?message=Bien essayé');
+        }
+        $this->view('alerts/messages');
     }
 }

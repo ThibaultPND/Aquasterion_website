@@ -1,4 +1,4 @@
-<?php class Alert
+<?php class Alerts
 {
     private $db;
 
@@ -15,11 +15,10 @@
     {
         $sql = 'SELECT 
                     parametres.nom AS param_nom, 
-                    alertes.limite_ID, 
-                    limites.type, 
-                    limites.Valeur, 
-                    message_alertes.message, 
-                    message_alertes.ID AS message_ID
+                    alertes.limite_ID AS Limite_ID,
+                    limites.type AS Limit_Type, 
+                    limites.Valeur,
+                    message_alertes.message
                     FROM alertes 
                     JOIN limites ON alertes.limite_ID = limites.ID
                     JOIN parametres ON limites.param_ID = parametres.ID

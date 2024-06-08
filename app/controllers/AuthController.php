@@ -1,11 +1,19 @@
 <?php
+require_once'../app/models/User.php';
 class AuthController extends Controller
 {
+    private $model;
+
+    public function __construct() {
+        $this->model = new User();
+    }
     public function profile() {
         if (!isLoggedIn()) {
             redirect('auth/login?message=Bien essayé');
         }
-        $this->view('auth/profile');
+        $data = $this->model->getUserById($_SESSION['user_id']);
+        
+        $this->view('auth/profile',$data);
     }
     public function register()
     {

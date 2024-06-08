@@ -3,8 +3,8 @@
     <table border="2">
         <thead>
             <tr>
-                <th>Nom de la limite</th>
-                <th>Type de donnée</th>
+                <th>Parametre</th>
+                <th>Opération</th>
                 <th>Valeur</th>
                 <th>Actions</th>
             </tr>
